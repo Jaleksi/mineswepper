@@ -72,7 +72,7 @@ const initCubes = (cubeSize, sideLength) => {
 
 const handleIntersection = () => {
     rayCaster.setFromCamera(mouse, camera);
-    const intersects = rayCaster.intersectObjects(cubes.map(cube => cube.mesh));
+    const intersects = rayCaster.intersectObjects(scene.children, true);
     // if any intersections
     if (intersects.length > 0){
         // get first intersection, find Cube object by mesh

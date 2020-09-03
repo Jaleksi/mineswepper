@@ -12,7 +12,10 @@ class Cube {
 
     initMesh(){
         this.geometry = new THREE.BoxGeometry(this.size, this.size, this.size);
-        this.material = new THREE.MeshBasicMaterial({map: this.texture});
+        this.material = new THREE.MeshBasicMaterial({
+            map: this.texture,
+            side: THREE.DoubleSide
+        });
         this.mesh = new THREE.Mesh(this.geometry, this.material);
         this.mesh.position.x = this.pos.x * this.size;
         this.mesh.position.y = this.pos.y * this.size;
@@ -28,6 +31,7 @@ class Cube {
 
     toggleHover(){
         this.hovered = !this.hovered;
-        this.mesh.material.color.setHex(this.hovered ? this.hoverColor : this.color);
+        this.mesh.material.color.setHex(this.hovered ? this.hoverColor : this.color
+        );
     }
 }
