@@ -21,17 +21,19 @@ const initCubes = (cubeSize, sideLength) => {
             };
         };
     };
-    cubes.map(cube => scene.add(cube.mesh));
-    cubes.map(cube => domEvents.addEventListener(cube.mesh, "click", event => {
-        cube.remove();
-        cubes = cubes.filter(item => item !== cube);
-    }));
-    cubes.map(cube => domEvents.addEventListener(cube.mesh, "mouseover", event => {
-        cube.toggleHover();
-    }));
-    cubes.map(cube => domEvents.addEventListener(cube.mesh, "mouseout", event => {
-        cube.toggleHover();
-    }));
+    cubes.map(cube => {
+        scene.add(cube.mesh);
+        domEvents.addEventListener(cube.mesh, "click", event => {
+            cube.remove();
+            cubes = cubes.filter(item => item !== cube);
+        });
+        domEvents.addEventListener(cube.mesh, "mouseover", event => {
+            cube.toggleHover();
+        });
+        domEvents.addEventListener(cube.mesh, "mouseout", event => {
+            cube.toggleHover();
+        });
+    });
 }
 
 
