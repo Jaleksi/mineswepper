@@ -1,3 +1,6 @@
 https://jaleksi.github.io/mineswepper/
 
-space to delete cube
+| key  | action  |
+|-------------| -----|
+| space | reveal/open |
+| E      |  expand cubes |
